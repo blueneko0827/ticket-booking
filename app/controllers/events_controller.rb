@@ -21,7 +21,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event = Event.find(params[:id])
+    @event = current_user.events.find(params[:id])
     if @event.destroy
       redirect_to @event, notice: "Event deleted successfully."
     else

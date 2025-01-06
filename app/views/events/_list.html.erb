@@ -27,7 +27,7 @@
         <% end %>
         <%= link_to event, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?', bs_toggle: "tooltip",  bs_title: 'Delete'}, class: 'btn p-1 text-danger' do %>
           <i class="fa-solid fa-trash"></i>
-        <% end %>
+        <% end if current_user == event.user%>
       </td>
     </tr>
   <% end %>
