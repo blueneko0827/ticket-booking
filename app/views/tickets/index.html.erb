@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <div class="page-header">
+        <div class="d-flex justify-content-between">
+          <h1><%= 'My Bookings' %></h1>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <%= render partial: 'list', locals: {tickets: @tickets} %>
+      </div>
+    </div>
+  </div>
+</div>

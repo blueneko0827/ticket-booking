@@ -1,0 +1,33 @@
+<main class="form-signin w-100 m-auto">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+
+    <%= render partial: 'devise/shared/logo', locals: {title: t('.change_your_password')} %>
+
+    <%= bootstrap_devise_error_messages! %>
+
+    <%= f.hidden_field :reset_password_token %>
+
+    <div class="form-floating">
+      <%= f.password_field :password, autofocus: true, class: 'form-control'  %>
+      <%= f.label :password, t('.new_password'), for: 'user_password' %>
+
+      <% if @minimum_password_length %>
+        <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
+      <% end %>
+    </div>
+
+
+    <div class="form-floating">
+      <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'  %>
+      <%= f.label :password_confirmation, t('.confirm_new_password'), for: 'user_password_confirmation'  %>
+    </div>
+
+    <div class="mb-2 my-3">
+      <%= f.submit resource.class.human_attribute_name('change_my_password'), class: 'btn btn-primary w-100 py-2' %>
+    </div>
+
+    <%- if controller_name != 'sessions' %>
+      <%= link_to t(".sign_in"), new_session_path(resource_name) %><br />
+    <% end -%>
+  <% end %>
+</main>

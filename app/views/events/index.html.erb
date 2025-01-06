@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <div class="page-header">
+        <div class="d-flex justify-content-between">
+          <h1><%= 'Events' %></h1>
+          <%= link_to new_event_path, class: 'btn btn-sm btn-outline-primary align-self-center ml-5' do %>
+            <i class="fa fa-plus" aria-hidden="true"></i> <%= 'New' %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <%= render partial: 'list', locals: {events: @events} %>
+      </div>
+    </div>
+  </div>
+</div>

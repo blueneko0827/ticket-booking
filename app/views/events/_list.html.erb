@@ -1,0 +1,39 @@
+<table class="table table-striped align-middle">
+  <thead class="table-dark">
+  <tr>
+    <th><%= 'ID' %></th>
+    <th><%= 'Name' %></th>
+    <th><%= 'Description' %></th>
+    <th><%= 'Total' %></th>
+    <th><%= 'Available' %></th>
+    <th><%= 'Location' %></th>
+    <th><%= 'Date/Time' %></th>
+    <th><%= 'Actions' %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% events.each do |event| %>
+    <tr>
+      <td><%= event.id %></td>
+      <td><%= event.name %></td>
+      <td><%= event.description %></td>
+      <td class="text-primary"><%= event.total_tickets %></td>
+      <td class="text-success"><%= event.available_tickets %></td>
+      <td><%= event.location %></td>
+      <td><%= date_format event.date %></td>
+      <td>
+        <%= link_to event_path(event), class: 'btn p-1 text-primary' do %>
+          <i class="fa-solid fa-eye"></i>
+        <% end %>
+        <%= link_to event, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?', bs_toggle: "tooltip",  bs_title: 'Delete'}, class: 'btn p-1 text-danger' do %>
+          <i class="fa-solid fa-trash"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<div class="d-flex justify-content-center flex-column">
+  <%= paginate events, remote: true  %>
+  <div class="text-center"><%= page_entries_info events, entry_name: 'item' %></div>
+</div>

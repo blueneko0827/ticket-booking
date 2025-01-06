@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= content_for(:title) || "Ticket Booking" %></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= yield :head %>
+
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/icon.png" type="image/png">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icon.png">
+  <script src="https://kit.fontawesome.com/62b93f0fc8.js" crossorigin="anonymous"></script>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <%= javascript_importmap_tags %>
+</head>
+<body>
+  <div class="container py-4">
+    <div class="col-8 mx-auto">
+      <%= render partial: 'shared/navbar' %>
+      <%= render partial: 'shared/toast' %>
+      <%= yield %>
+    </div>
+  </div>
+</body>
+</html>

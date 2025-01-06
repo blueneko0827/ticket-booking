@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-body">
+    <h1><%= @event.name %></h1>
+    <p><%= @event.description %></p>
+    <p><b>Location:</b> <%= @event.location %></p>
+    <p><b>Date:</b> <%= @event.date %></p>
+    <p class="text-primary"><b>Total Tickets:</b> <%= @event.total_tickets %></p>
+    <p class="text-success"><b>Available Tickets:</b> <%= @event.available_tickets %></p>
+
+
+    <%= form_with url: tickets_path, method: :post do |f| %>
+      <%= f.hidden_field :event_id, value: @event.id %>
+      <%= f.number_field :quantity, placeholder: "Number of tickets", min: 1 %>
+      <%= f.submit 'Book Tickets', class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

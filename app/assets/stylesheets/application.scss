@@ -1,0 +1,39 @@
+@import "bootstrap";
+body {
+  padding-top: 4.5rem;
+}
+.form-signin {
+  max-width: 400px;
+  padding: 1rem;
+
+  .form-floating:focus-within {
+    z-index: 2;
+  }
+
+  input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .password {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-right: 0;
+  }
+
+  .input-group span {
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-left: 0;
+    background-color: var(--bs-body-bg);
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    button:active {
+      color: var(--bs-body-bg);
+      background-color: var(--bs-body-bg);
+      border-color: var(--bs-body-bg);
+    }
+  }
+}

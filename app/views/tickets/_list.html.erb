@@ -1,0 +1,34 @@
+<table class="table table-striped align-middle">
+  <thead class="table-dark">
+  <tr>
+    <th><%= 'ID' %></th>
+    <th><%= 'Event Name' %></th>
+    <th><%= 'Quantity' %></th>
+    <th><%= 'Location' %></th>
+    <th><%= 'Date/Time' %></th>
+    <th><%= 'Booked At' %></th>
+    <th><%= 'Actions' %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% tickets.each do |ticket| %>
+    <tr>
+      <td><%= ticket.id %></td>
+      <td class="text-primary"><%= ticket.event.name %></td>
+      <td class="text-success"><%= ticket.quantity %></td>
+      <td><%= ticket.event.location %></td>
+      <td><%= date_format ticket.event.date %></td>
+      <td><%= date_format ticket.created_at %></td>
+      <td>
+        <%= link_to ticket, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?', bs_toggle: "tooltip",  bs_title: 'Delete'}, class: 'btn p-1 text-danger' do %>
+          <i class="fa-solid fa-trash"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<div class="d-flex justify-content-center flex-column">
+  <%= paginate tickets, remote: true  %>
+  <div class="text-center"><%= page_entries_info tickets, entry_name: 'item' %></div>
+</div>
