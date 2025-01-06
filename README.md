@@ -4,6 +4,10 @@ A simple event ticket booking system built with Ruby on Rails. This application 
 
 ---
 
+##  Live Demo:
+
+https://ticket-booking-wogf.onrender.com/
+
 ## Features
 
 - **User Authentication**: Users can register, log in, and log out using Devise.
