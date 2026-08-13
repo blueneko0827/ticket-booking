@@ -26,7 +26,7 @@ https://ticket-booking-wogf.onrender.com/
 
 ### 1. Clone the Repository
 ```bash
-https://github.com/jaspreet-3911/ticket-booking.git
+https://github.com/blueneko0827/ticket-booking.git
 ```
 ### 2. Install Dependencies
 ```bundle install```
